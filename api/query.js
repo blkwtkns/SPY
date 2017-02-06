@@ -1247,7 +1247,7 @@ var query = {
 
 
     // createProfile: function (postgres, payload, callback) {
-    //     var queryString = 'CALL spfy.insert_profile(';
+    //     var queryString = 'CALL spy.insert_profile(';
 
     //     queryString += parseProperty(payload.username) + ',';
     //     queryString += parseProperty(payload.password) + ',';
@@ -1273,7 +1273,7 @@ var query = {
     //     });
     // },
     // getCaseManagerClients: function (postgres, payload, callback) {
-    //     var queryString = 'CALL spfy.get_case_manager_clients(';
+    //     var queryString = 'CALL spy.get_case_manager_clients(';
 
     //     queryString += parseProperty(payload.caseManagerID) + ')';
 
@@ -1285,7 +1285,7 @@ var query = {
     //     });
     // },
     // searchCaseManagerClients: function (postgres, payload, callback) {
-    //     var queryString = 'CALL spfy.search_case_manager_clients(';
+    //     var queryString = 'CALL spy.search_case_manager_clients(';
 
     //     queryString += parseProperty(payload.caseManagerID) + ',';
     //     queryString += parseProperty(payload.clientID) + ')';

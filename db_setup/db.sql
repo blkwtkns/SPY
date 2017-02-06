@@ -94,9 +94,9 @@ CREATE TABLE casemanager (
   position varchar(45) NOT NULL
 );
 
-INSERT INTO casemanager VALUES (1, 'jew@spfy.org','tables','Jeanine','Espejo-Watkins','Case Manager');
-INSERT INTO casemanager VALUES (2, 'bp@spfy.org','tables','Ben','Perkins','Case Manager');
-INSERT INTO casemanager VALUES (3, 'rh@spfy.org','tables','Rob','Hanna','Case Manager');
+INSERT INTO casemanager VALUES (1, 'jew@spy.org','tables','Jeanine','Espejo-Watkins','Case Manager');
+INSERT INTO casemanager VALUES (2, 'bp@spy.org','tables','Ben','Perkins','Case Manager');
+INSERT INTO casemanager VALUES (3, 'rh@spy.org','tables','Rob','Hanna','Case Manager');
 
 
 
