@@ -3,7 +3,7 @@
 ## 5.1	Introduction
 This Software Requirements Specification (SRS) documents the requirements for the Safe Place for Youth (SPY) Database Website Application (called “SPY Database” or “SPY Database Web App” or “SPY Database App” for the purposes of this document).
 The SPY Database is a cloud-based web application that will allow users to store and retrieve data over the Internet from any platform, be it a desktop computer, tablet, or smartphone. This system will be uniquely customized to suit the needs of Safe Place for Youth, a nonprofit organization that serves homeless youth, and will allow SPY staff to securely store and retrieve client information for each youth enrolled in their programs. Thus, at the heart of this system lives the youth profile, which contains a youth’s important health, legal, and participation information. Additionally, the SPY staff will have user profiles, and each of SPY’s programs will have a “program profile.”
-The SPY Database system architecture is comprised of a client-side, browser-based interface (frontend), a cloud-hosted server (backend), and the database itself that will store, send, and query data. The frontend will consist of various web-pages that will allow users to easily input, request, and query information stored in the database. The server backend and database will be configured to optimize concurrent access as well as comply with HIPAA security rules to protect confidential client information.
+The SPY Database system architecture is comprised of a browser-based interface (frontend), a cloud-hosted client-side server (backend), and the database itself that will store, send, and query data. The frontend will consist of various webpages that will allow users to easily input, request, and query information stored in the database. The server backend and database will be configured to optimize concurrent access as well as comply with HIPAA security rules to protect confidential client information.
 
 <p align="center">
 	<img src="../resources/spec_01.png" alt="High-Level Diagram of System">
@@ -79,7 +79,9 @@ The SPY Database Web App will allow SPY staff to input client information that w
 		- 5.3.1.16.1	The youth profile page will have a panel listing youth profiles.
 		- 5.3.1.16.2	The youth profile page shall have a to-do list panel.
 		- 5.3.1.16.3	The youth profile page shall have a button for adding a new youth profile.
-	- 5.3.1.17	Each youth profile listed on the panel shall be color coded based on youth status.
+	- 5.3.1.17	The Frontend shall have a youth profile table listing the names of each youth registered at SPY.
+		- 5.3.1.17.1 	The youth profile table shall feature a search bar for filtering youth profiles displayed.
+		- 5.3.1.17.2 	Each youth profile listed on the panel shall be color coded based on youth flag indicators.
 	- 5.3.1.18 	The Frontend shall have a front desk page.
 		- 5.3.1.18.1	The front desk page shall have a panel with a list of youth who need to finish intake.
 		- 5.3.1.18.2	The front desk page shall have a button to create a new drop-in session.
@@ -91,7 +93,7 @@ The SPY Database Web App will allow SPY staff to input client information that w
 	- 5.3.1.20	The Frontend shall have a Drop-In Enrollment tracking page.
 		- 5.3.1.20.1	The enrollment tracking page shall have panel listing all of the SPY activities for the day.
 		- 5.3.1.20.2	The enrollment tracking page shall have display for tracking total youth attendance.
-		- 5.3.1.20.3	The enrollment tracking page shall provide a means to check-in youth to drop-in
+		- 5.3.1.20.3	The enrollment tracking page shall provide a means to check-in youth to the current drop-in session.
 	- 5.3.1.21	The Frontend shall have an Outreach page.
 		- 5.3.1.21.1	The outreach page shall have a button to create a new outreach session.
 		- 5.3.1.21.2	The outreach page shall have a button to add a new youth profile.
@@ -101,7 +103,14 @@ The SPY Database Web App will allow SPY staff to input client information that w
 	- 5.3.1.22	The Frontend shall have a New Outreach Session page.
 		- 5.3.1.22.1	The new outreach session page shall have fields to input details for the new outreach session.
 		- 5.3.1.22.2	The new outreach session page shall have a button to add a new youth to the session.
-		
+	- 5.3.1.23  The Frontend shall have a databrowser page.
+		- 5.3.1.23.1 	The databrowser page shall have a panel that allows users to build queries.
+		- 5.3.1.23.2 	The databrowser page shall have a display area for viewing the results of queries on data stored in the database.
+		- 5.3.1.23.3    The databrowser page shall have a button for saving queries.
+		- 5.3.1.23.4    The databrowser page shall have a button for applying saved queries.
+		- 5.3.1.23.5    The databrowser page shall have a button for exporting the results of queries in CSV format.
+		- 5.3.1.23.6 	The databrowser page shall have a button for exporting the results of queries in XLSX format.
+		- 5.3.1.23.7 	The databrowser page shall have a button for exporting the results of queries in JSON format.
 
 - 5.3.2	Backend
 	- 5.3.2.1		The Backend shall respond to HTTP requests from the Frontend.
@@ -121,6 +130,7 @@ The SPY Database Web App will allow SPY staff to input client information that w
 	- 5.3.2.10	The Backend shall respond with a 404 error code when a page or route is not found.
 	- 5.3.2.11	The Backend shall respond with a 500 error code when there is an error in the client-side server.
 	- 5.3.2.12	The Backend shall respond with a 200 error code when an HTTP request is successfully made and returned.
+	- 5.3.2.13  The Backend shall feature a REST API that the frontend can utilize via HTTP requests.
 
 
 - 5.3.3	Database
@@ -152,21 +162,17 @@ The SPY Database Web App will allow SPY staff to input client information that w
 	- 5.3.4.14	The system shall have a means for communicating its current functional status to users.
 	- 5.3.4.15	The system shall provide a means for scheduling appointments.
 	- 5.3.4.16	The system shall provide a means for managing appointments.
-	- 5.3.4.17	The system shall integrate with calendar software.
-	- 5.3.4.18	The system shall integrate with email software.
-	- 5.3.4.19	The system shall forward scheduled appointments to automatically populate the calendar software.
-	- 5.3.4.20	The system shall use flags to indicate the status of user, client, and program profile information.
-	- 5.3.4.21	The system shall provide a means for sending and receiving notifications to various software applications.
-	- 5.3.4.22	The system shall provide a means for importing data.
-	- 5.3.4.23	The system shall provide a means for exporting data.
-	- 5.3.4.24	The system shall provide a means for users to customize settings for the entire system (Frontend, Backend, Database).
-	- 5.3.4.25	The system shall allow SPY staff profiles to access data from other SPY staff profiles.
-	- 5.3.4.26	The system shall provide a means for storing document files.
-	- 5.3.4.27	The system shall provide a means for storing image files.
-	- 5.3.4.28	The system shall provide a means for tracking valuable items (backpacks, phones, keys, . . . etc.).
-	- 5.3.4.29 	The system shall feature basic authentication for usernames and passwords.
-	- 5.3.4.30  The system shall feature standard encryption for data transmission.
-	- 5.3.4.31  The system shall feature standard encryption for data storage. 
+	- 5.3.4.17	The system shall use flags to indicate the status of user, client, and program profile information.
+	- 5.3.4.18	The system shall provide a means for sending and receiving notifications to various software applications.
+	- 5.3.4.19	The system shall provide a means for importing data.
+	- 5.3.4.20	The system shall provide a means for exporting data.
+	- 5.3.4.21	The system shall provide a means for users to customize settings for the entire system (Frontend, Backend, Database).
+	- 5.3.4.22	The system shall allow SPY staff profiles to access data from other SPY staff profiles.
+	- 5.3.4.23	The system shall provide a means for storing document files.
+	- 5.3.4.24	The system shall provide a means for storing image files.
+	- 5.3.4.25 	The system shall feature basic authentication for usernames and passwords.
+	- 5.3.4.26  The system shall feature standard encryption for data transmission.
+	- 5.3.4.27  The system shall feature standard encryption for data storage. 
 
 ### 5.4	Performance Requirements
 
@@ -224,8 +230,8 @@ Utilizing pre-built frameworks such as Node.js will expedite development and pro
 
 | Category | Requirement |
 |---|---|
-| Front End | Bootstrap, ComboDate, jQuery, Notify, Moment, Spectrum  | 
-| Server | Node.js, npm, Hapi, Joi, npm-pg, Chai, CodeCov, ESLint, Istanbul, Mocha, Mocha-Istanbul, Nodemon |
+| Front End| Bootstrap, ComboDate, jQuery, ReactJS, Notify, Moment, Spectrum  | 
+| Server   | Node.js, npm, Hapi, Joi, npm-pg, Chai, CodeCov, ESLint, Istanbul, Mocha, Mocha-Istanbul, Nodemon |
 | Database | PostgrSQL |
 
 #### 5.5.2	Execution Environment Requirements
@@ -233,7 +239,7 @@ Utilizing pre-built frameworks such as Node.js will expedite development and pro
 | Category | Requirement |
 |---|---|
 | Frontend | I/O server-side environment and API |
-| Server | HIPAA compliant third-party cloud server hosting |
+| Server   | HIPAA compliant third-party cloud server hosting |
 | Database | HIPAA compliant third-party cloud database hosting |
 
 Due to the services that Safe Place for Youth provides and the population they serve, all software for this system must follow HIPAA security protocols. Furthermore, the need to reduce the risk for data loss as well as the need for ubiquitous access to the SPY Database Web App from any platform requires a third-party cloud hosting service that specializes in secure data storage and maintenance.
