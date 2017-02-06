@@ -24,7 +24,7 @@ var apiRoutes = [
         path: '/hello',
         handler: function (request, reply) { // request and reply come from Hapi package
             reply({
-                'hello': 'Welcome to the SPFY webapp!'
+                'hello': 'Welcome to the spy webapp!'
             }).code(200);
         }
     },
