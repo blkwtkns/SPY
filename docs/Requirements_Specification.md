@@ -106,11 +106,13 @@ The SPY Database Web App will allow SPY staff to input client information that w
 	- 5.3.1.23  The Frontend shall have a databrowser page.
 		- 5.3.1.23.1 	The databrowser page shall have a panel that allows users to build queries.
 		- 5.3.1.23.2 	The databrowser page shall have a display area for viewing the results of queries on data stored in the database.
-		- 5.3.1.23.3    The databrowser page shall have a button for saving queries.
-		- 5.3.1.23.4    The databrowser page shall have a button for applying saved queries.
+		- 5.3.1.23.3    The databrowser page shall have a button for saving query views.
+		- 5.3.1.23.4    The databrowser page shall have a button for applying saved query views.
 		- 5.3.1.23.5    The databrowser page shall have a button for exporting the results of queries in CSV format.
 		- 5.3.1.23.6 	The databrowser page shall have a button for exporting the results of queries in XLSX format.
 		- 5.3.1.23.7 	The databrowser page shall have a button for exporting the results of queries in JSON format.
+	- 5.3.1.24  The Frontend shall have a staff profile page.
+		- 5.3.1.24.1 	The staff profile page shall have a table for managing follow-up appointments.
 
 - 5.3.2	Backend
 	- 5.3.2.1		The Backend shall respond to HTTP requests from the Frontend.
@@ -224,7 +226,7 @@ The Database should immediately backup data if network or server issues are dete
 
 ### 5.5	Project Environment Requirements 
 
-Utilizing pre-built frameworks such as Node.js will expedite development and provide more secure and stable server-side hosting.
+Utilizing pre-built frameworks such as Node.js will expedite development and provide more secure and stable client-side server hosting.
 
 #### 5.5.1	Development Environment Requirements
 
