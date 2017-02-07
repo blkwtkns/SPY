@@ -24,8 +24,7 @@ describe("Routes", function () {
         // request.get('/').expect(200); // if expect() gets a number, automatically thinks it's a status code
         SPY.inject(options, function (response) {
             expect(response.statusCode).to.eql(200);
+            done();
         });
-
-        done();
     });
 });
