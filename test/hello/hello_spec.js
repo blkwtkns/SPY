@@ -2,11 +2,11 @@ var chai = require("chai");
 var expect = chai.expect;
 var apiroutes = require("../../routes/api_routes.js");
 var request = require('supertest');
-var SPY = require('../../server.js');
+// var SPY = require('../../server.js');
 
 
 describe("Hello", function() {
-    it("tests the Testing", function(done) {
+    it("tests the Testing", function (done) {
         expect("hello").to.eql("hello");
         done();
     });
