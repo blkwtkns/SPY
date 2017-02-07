@@ -75,9 +75,9 @@
   ],
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/SirSeim/spy/issues"
+    "url": "https://github.com/cf7/SPY/issues"
   },
-  "homepage": "https://github.com/SirSeim/spy#readme",
+  "homepage": "https://github.com/cf7/SPY#README",
   "dependencies": {
     "bcrypt": "^0.8.7",
     "good": "^7.0.2",
