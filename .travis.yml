@@ -11,7 +11,7 @@ addons:
 env:
 - TRAVIS=travis CXX=g++-4.8
 script:
-- npm test
+- npm run travis-test
 - npm run lint
 after_script:
 - npm run codecov
