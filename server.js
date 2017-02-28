@@ -5,6 +5,17 @@ var Vision = require('vision');
 var PostgreSQL = require('pg');
 var url = require('url');
 
+// trying to set up port for postgres in docker container
+var db_host = process.env.POSTGRES_PORT_5432_TCP_ADDR || 'localhost';
+
+console.log(
+  'db_host: ', db_host, 
+  'pass: ', process.env.POSTGRES_PASSWORD, 
+  'port: ', process.env.PORT,
+  'dbURL: ', process.env.DATABASE_URL,
+  'key: ', process.env.SPY_KEY
+)
+
 var setup = {
     host: process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost",
     port: process.env.PORT || "8080"
