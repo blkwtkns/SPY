@@ -23,4 +23,4 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_USER: spyuser
-      POSTGRES_PASSWORD: PASSWORD 
+      POSTGRES_PASSWORD: ${PASSWORD} 
