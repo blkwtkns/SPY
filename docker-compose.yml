@@ -1,0 +1,26 @@
+version: '2'
+services:
+  web:
+    build: .
+    image: nodeapp
+    ports:
+      - "8080:8080"
+    env_file: .env
+    environment:
+      - PGHOST=db
+      - PGDB=spy
+      - POSTGRES_USER=spyuser
+      - POSTGRES_PASSWORD=${PASSWORD}
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/spy
+      - SPY_KEY=${KEY}
+    depends_on:
+      - db
+  db:
+    image: postgres:latest
+    volumes: 
+      - ./db_setup:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: spyuser
+      POSTGRES_PASSWORD: PASSWORD 
