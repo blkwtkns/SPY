@@ -6,20 +6,24 @@ var PostgreSQL = require('pg');
 var url = require('url');
 
 // trying to set up port for postgres in docker container
-var db_host = process.env.POSTGRES_PORT_5432_TCP_ADDR || 'localhost';
+// var db_host = process.env.POSTGRES_PORT_5432_TCP_ADDR || 'localhost';
 
-console.log(
-  'db_host: ', db_host, 
-  'pass: ', process.env.POSTGRES_PASSWORD, 
-  'port: ', process.env.PORT,
-  'dbURL: ', process.env.DATABASE_URL,
-  'key: ', process.env.SPY_KEY
-)
+// console.log(
+//   'db_host: ', db_host, 
+//   'pass: ', process.env.POSTGRES_PASSWORD, 
+//   'port: ', process.env.PORT,
+//   'dbURL: ', process.env.DATABASE_URL,
+//   'key: ', process.env.SPY_KEY,
+//   'dirname: ', __dirname
+// )
 
 var setup = {
-    host: process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost",
-    port: process.env.PORT || "8080"
+    // host: process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost",
+    // port: process.env.PORT || "8080"
+  host: "0.0.0.0",
+  port: "8080"
 };
+
 var Api = require(Path.join(__dirname, 'routes/api_routes.js'));
 var viewRoutes = require(Path.join(__dirname, 'routes/view_routes.js'));
 
