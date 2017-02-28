@@ -19,7 +19,6 @@ RUN npm i -g nodemon
 # why bcrypt module isn't playing nice with docker container
 
 # Bundle app source
-COPY  ./.env /usr/src/app/
 COPY  ./.eslintignore /usr/src/app/
 COPY  ./__MACOSX /usr/src/app/__MACOSX
 COPY  ./api /usr/src/app/api
