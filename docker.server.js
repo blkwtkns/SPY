@@ -5,10 +5,20 @@ var Vision = require('vision');
 var PostgreSQL = require('pg');
 var url = require('url');
 
+// console.log(
+//   'db_host: ', db_host, 
+//   'pass: ', process.env.POSTGRES_PASSWORD, 
+//   'port: ', process.env.PORT,
+//   'dbURL: ', process.env.DATABASE_URL,
+//   'key: ', process.env.SPY_KEY,
+//   'dirname: ', __dirname
+// )
 
 var setup = {
-    host: process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost",
-    port: process.env.PORT || "8080"
+    // host: process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost",
+    // port: process.env.PORT || "8080"
+  host: "0.0.0.0",
+  port: "8080"
 };
 
 var Api = require(Path.join(__dirname, 'routes/api_routes.js'));
@@ -17,14 +27,18 @@ var viewRoutes = require(Path.join(__dirname, 'routes/view_routes.js'));
 var postgresqlPool = {
     register: function (server, options, next) {
         var params = url.parse(process.env.DATABASE_URL);
-        var auth = params.auth.split(':');
+        // var auth = params.auth.split(':');
+        var {POSTGRES_USER: user, POSTGRES_PASSWORD: auth} = process.env;
 
         var dbconfig = {
-            user: auth[0],
-            password: auth[1],
+            // user: auth[0],
+            // password: auth[1],
+            user: user,
+            password: auth,
             host: params.hostname,
             port: params.port,
-            database: params.pathname.split('/')[1],
+            // database: params.pathname.split('/')[1],
+            database: process.env.PGDB,
             ssl: process.env.NODE_ENV === "production",
             max: 20,
             min: 4
