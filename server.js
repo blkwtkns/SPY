@@ -5,9 +5,6 @@ var Vision = require('vision');
 var PostgreSQL = require('pg');
 var url = require('url');
 
-// trying to set up port for postgres in docker container
-// var db_host = process.env.POSTGRES_PORT_5432_TCP_ADDR || 'localhost';
-
 // console.log(
 //   'db_host: ', db_host, 
 //   'pass: ', process.env.POSTGRES_PASSWORD, 
@@ -30,14 +27,18 @@ var viewRoutes = require(Path.join(__dirname, 'routes/view_routes.js'));
 var postgresqlPool = {
     register: function (server, options, next) {
         var params = url.parse(process.env.DATABASE_URL);
-        var auth = params.auth.split(':');
+        // var auth = params.auth.split(':');
+        var {POSTGRES_USER: user, POSTGRES_PASSWORD: auth} = process.env;
 
         var dbconfig = {
-            user: auth[0],
-            password: auth[1],
+            // user: auth[0],
+            // password: auth[1],
+            user: user,
+            password: auth,
             host: params.hostname,
             port: params.port,
-            database: params.pathname.split('/')[1],
+            // database: params.pathname.split('/')[1],
+            database: process.env.PGDB,
             ssl: process.env.NODE_ENV === "production",
             max: 20,
             min: 4
