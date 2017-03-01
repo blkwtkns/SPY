@@ -1,4 +1,3 @@
-# FROM mhart/alpine-node:7.6
 FROM node:7.6-alpine
 
 # Script to stop root usage - needs tinkering
@@ -7,8 +6,6 @@ FROM node:7.6-alpine
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-
-COPY package.json /usr/src/app
 
 RUN npm i -g nodemon
 
@@ -19,18 +16,7 @@ RUN npm i -g nodemon
 # why bcrypt module isn't playing nice with docker container
 
 # Bundle app source
-COPY  ./.eslintignore /usr/src/app/
-COPY  ./__MACOSX /usr/src/app/__MACOSX
-COPY  ./api /usr/src/app/api
-COPY  ./clientcheckintable.js /usr/src/app
-COPY  ./codecov.yml /usr/src/app
-COPY  ./config /usr/src/app/config
-COPY  ./resources /usr/src/app/resources
-COPY  ./routes /usr/src/app/routes
-COPY  ./server.js /usr/src/app
-COPY  ./static /usr/src/app/static
-COPY  ./templates /usr/src/app/templates
-COPY  ./test /usr/src/app/test
+COPY . /usr/src/app/
 RUN npm install --no-bin-links
 
 EXPOSE 8080
