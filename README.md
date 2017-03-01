@@ -91,6 +91,55 @@ npm run lint
 
 To view a coverage report, run `npm test`, then `npm run report`, then open up `coverage/lcov-report/index.html` in a webbrowser
 
+
+### Using Docker
+
+Install Docker and Docker-Compose (Docker-Machine needed for Mac and 
+Windows environments)
+
+Build and start nodeapp and postgresql images as daemons
+```
+docker-compose up -d
+```
+
+That's it! Go to localhost:8080 and login, it should function the same
+as regular dev setup. 
+
+To stop docker daemons
+```
+docker-compose down
+```
+
+Look at processes
+```
+docker ps
+```
+
+See logs for any provided process
+```
+docker logs <container-id>
+```
+
+Enter process (press <C-p><C-q> for 'graceful' exit)
+```
+  docker exec -it <container-id> sh
+```
+
+Kill all running Docker containers
+```
+docker kill $(docker ps -q)
+```
+
+Remove all Docker containers
+```
+docker rm $(docker ps -a -q)
+```
+
+Remove all Docker images
+```
+docker rmi $(docker images -q)
+```
+
 [version-img]: https://img.shields.io/badge/version-beta%202-yellow.svg
 [version-url]: https://github.com/SirSeim/spy
 
