@@ -94,7 +94,7 @@ To view a coverage report, run `npm test`, then `npm run report`, then open up `
 
 ### Using Docker
 
-Install Docker and Docker-Compose (Docker-Machine needed for Mac and 
+Install Docker and Docker-Compose (Docker-Machine also needed for Mac and 
 Windows environments)
 
 Build and start nodeapp and postgresql images as daemons
@@ -102,8 +102,8 @@ Build and start nodeapp and postgresql images as daemons
 docker-compose up -d
 ```
 
-That's it! Go to localhost:8080 and login, it should function the same
-as regular dev setup. 
+That's it! Go to localhost:8080 and login, it should function the same as regular dev setup. 
+
 
 To stop docker daemons
 ```
@@ -122,7 +122,7 @@ docker logs <container-id>
 
 Enter process (press <C-p><C-q> for 'graceful' exit)
 ```
-  docker exec -it <container-id> sh
+docker exec -it <container-id> sh
 ```
 
 Kill all running Docker containers
