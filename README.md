@@ -97,6 +97,11 @@ To view a coverage report, run `npm test`, then `npm run report`, then open up `
 Install Docker and Docker-Compose (Docker-Machine also needed for Mac and 
 Windows environments)
 
+See links for install instructions:
+* [docker](https://docs.docker.com/engine/installation/)
+* [docker-compose](https://docs.docker.com/compose/install/)
+* [Linux-specific sudo handling](http://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo)
+
 Build and start nodeapp and postgresql images as daemons
 ```
 docker-compose up -d
